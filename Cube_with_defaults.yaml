@@ -1,0 +1,514 @@
+blueprint:
+  name: deCONZ - Aqara Magic Cube MFKZQ01LM
+  description: Control anything using Aqara Magic Cube
+  domain: automation
+  input:
+    remote:
+      name: Remote
+      description: Magic Cube to use
+      selector:
+        device:
+          integration: deconz
+          manufacturer: LUMI
+    current_face:
+      name: Current face helper (1–6)
+      description: Optional helper that stores which face is up (1–6). Used for per-face rotation actions.
+      default: null
+      selector:
+        entity:
+          multiple: false
+          domain:
+            - input_number
+            - input_text
+    default_light:
+      name: Default light target
+      description: Optional light to control when using built-in defaults for rotate/double tap
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    enable_default_actions:
+      name: Enable built‑in default actions
+      description: If enabled, use default light actions for rotate/double tap when a default light is set
+      default: true
+      selector:
+        boolean: {}
+    wake:
+      name: Cube wake up
+      description: Action to run when cube wakes
+      default: []
+      selector:
+        action: {}
+    slide:
+      name: Slide the cube
+      description: Action to run on slide movement
+      default: []
+      selector:
+        action: {}
+    double_tap:
+      name: Double tap the cube
+      description: Action to run on a double tap
+      default: []
+      selector:
+        action: {}
+    flip_180:
+      name: Flip the cube 180 degrees
+      description: Action to run on a 180 flip
+      default: []
+      selector:
+        action: {}
+    flip_90:
+      name: Flip the cube 90 degrees
+      description: Action to run on a 90 flip
+      default: []
+      selector:
+        action: {}
+    shake:
+      name: Shake the cube
+      description: Action to run when the cube is shaked
+      default: []
+      selector:
+        action: {}
+    drop:
+      name: Drop the cube
+      description: Action to run when the cube is dropped
+      default: []
+      selector:
+        action: {}
+    rotate_cw:
+      name: Rotate cube clockwise
+      description: Action to run when the cube is rotated clockwise
+      default: []
+      selector:
+        action: {}
+    rotate_ccw:
+      name: Rotate cube counter clockwise
+      description: Action to run when the cube is rotated counter clockwise
+      default: []
+      selector:
+        action: {}
+    # Face 1 group
+    wake_face_1:
+      name: Face 1 – Wake
+      description: Action to run when cube wakes and face 1 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_1:
+      name: Face 1 – Double tap
+      description: Action to run on double tap when face 1 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_1:
+      name: Face 1 – Shake
+      description: Action to run when the cube is shaked and face 1 is up
+      default: []
+      selector:
+        action: {}
+    rotate_cw_face_1:
+      name: Face 1 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 1 is up
+      default: []
+      selector:
+        action: {}
+    rotate_ccw_face_1:
+      name: Face 1 – Rotate counter-clockwise
+      description: Action to run when rotating counter clockwise and face 1 is up
+      default: []
+      selector:
+        action: {}
+    # Face 2 group
+    wake_face_2:
+      name: Face 2 – Wake
+      description: Action to run when cube wakes and face 2 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_2:
+      name: Face 2 – Double tap
+      description: Action to run on double tap when face 2 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_2:
+      name: Face 2 – Shake
+      description: Action to run when the cube is shaked and face 2 is up
+      default: []
+      selector:
+        action: {}
+    rotate_cw_face_2:
+      name: Face 2 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 2 is up
+      default: []
+      selector:
+        action: {}
+    rotate_ccw_face_2:
+      name: Face 2 – Rotate counter-clockwise
+      description: Action to run when rotating counter clockwise and face 2 is up
+      default: []
+      selector:
+        action: {}
+    # Face 3 group
+    wake_face_3:
+      name: Face 3 – Wake
+      description: Action to run when cube wakes and face 3 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_3:
+      name: Face 3 – Double tap
+      description: Action to run on double tap when face 3 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_3:
+      name: Face 3 – Shake
+      description: Action to run when the cube is shaked and face 3 is up
+      default: []
+      selector:
+        action: {}
+    rotate_cw_face_3:
+      name: Face 3 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 3 is up
+      default: []
+      selector:
+        action: {}
+    rotate_ccw_face_3:
+      name: Face 3 – Rotate counter-clockwise
+      description: Action to run when rotating counter clockwise and face 3 is up
+      default: []
+      selector:
+        action: {}
+    # Face 4 group
+    wake_face_4:
+      name: Face 4 – Wake
+      description: Action to run when cube wakes and face 4 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_4:
+      name: Face 4 – Double tap
+      description: Action to run on double tap when face 4 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_4:
+      name: Face 4 – Shake
+      description: Action to run when the cube is shaked and face 4 is up
+      default: []
+      selector:
+        action: {}
+    rotate_cw_face_4:
+      name: Face 4 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 4 is up
+      default: []
+      selector:
+        action: {}
+    rotate_ccw_face_4:
+      name: Face 4 – Rotate counter-clockwise
+      description: Action to run when rotating counter clockwise and face 4 is up
+      default: []
+      selector:
+        action: {}
+    # Face 5 group
+    wake_face_5:
+      name: Face 5 – Wake
+      description: Action to run when cube wakes and face 5 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_5:
+      name: Face 5 – Double tap
+      description: Action to run on double tap when face 5 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_5:
+      name: Face 5 – Shake
+      description: Action to run when the cube is shaked and face 5 is up
+      default: []
+      selector:
+        action: {}
+    rotate_cw_face_5:
+      name: Face 5 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 5 is up
+      default: []
+      selector:
+        action: {}
+    rotate_ccw_face_5:
+      name: Face 5 – Rotate counter-clockwise
+      description: Action to run when rotating counter clockwise and face 5 is up
+      default: []
+      selector:
+        action: {}
+    # Face 6 group
+    wake_face_6:
+      name: Face 6 – Wake
+      description: Action to run when cube wakes and face 6 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_6:
+      name: Face 6 – Double tap
+      description: Action to run on double tap when face 6 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_6:
+      name: Face 6 – Shake
+      description: Action to run when the cube is shaked and face 6 is up
+      default: []
+      selector:
+        action: {}
+    rotate_cw_face_6:
+      name: Face 6 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 6 is up
+      default: []
+      selector:
+        action: {}
+    rotate_ccw_face_6:
+      name: Face 6 – Rotate counter-clockwise
+      description: Action to run when rotating counter clockwise and face 6 is up
+      default: []
+      selector:
+        action: {}
+  source_url: https://community.home-assistant.io/t/deconz-xiaomi-aqara-mfkzq01lm-cube-controller/255988
+mode: restart
+max_exceeded: silent
+trigger:
+- platform: event
+  event_type: deconz_event
+  event_data:
+    device_id: !input 'remote'
+action:
+- variables:
+    event: '{{ trigger.event.data.event }}'
+    face_entity: !input 'current_face'
+    face_state: >-
+      {{
+        face_entity is not none
+        and
+        (
+          (states(face_entity) | int(0))
+          if face_entity.split('.') | first == 'input_number'
+          else (states(face_entity) | int(0))
+        )
+        or 0
+      }}
+    default_light: !input 'default_light'
+    enable_defaults: !input 'enable_default_actions'
+- choose:
+  - conditions:
+    - '{{ event == 7000 }}'
+    sequence:
+    - choose:
+      - conditions:
+        - '{{ face_state == 1 }}'
+        sequence: !input 'wake_face_1'
+      - conditions:
+        - '{{ face_state == 2 }}'
+        sequence: !input 'wake_face_2'
+      - conditions:
+        - '{{ face_state == 3 }}'
+        sequence: !input 'wake_face_3'
+      - conditions:
+        - '{{ face_state == 4 }}'
+        sequence: !input 'wake_face_4'
+      - conditions:
+        - '{{ face_state == 5 }}'
+        sequence: !input 'wake_face_5'
+      - conditions:
+        - '{{ face_state == 6 }}'
+        sequence: !input 'wake_face_6'
+      default: !input 'wake'
+  - conditions:
+    - '{{ event in [1000, 2000, 3000, 4000, 5000, 6000] }}'
+    sequence: !input 'slide'
+  - conditions:
+    - '{{ event in [1001, 2002, 3003, 4004, 5005, 6006] }}'
+    sequence:
+    - choose:
+      - conditions:
+        - '{{ face_state == 1 }}'
+        sequence: !input 'double_tap_face_1'
+      - conditions:
+        - '{{ face_state == 2 }}'
+        sequence: !input 'double_tap_face_2'
+      - conditions:
+        - '{{ face_state == 3 }}'
+        sequence: !input 'double_tap_face_3'
+      - conditions:
+        - '{{ face_state == 4 }}'
+        sequence: !input 'double_tap_face_4'
+      - conditions:
+        - '{{ face_state == 5 }}'
+        sequence: !input 'double_tap_face_5'
+      - conditions:
+        - '{{ face_state == 6 }}'
+        sequence: !input 'double_tap_face_6'
+      default: !input 'double_tap'
+    - choose:
+      - conditions:
+        - '{{ enable_defaults }}'
+        - '{{ default_light is not none }}'
+        sequence:
+        - service: light.toggle
+          target:
+            entity_id: '{{ default_light }}'
+  - conditions:
+    - '{{ event in [1006, 2005, 3004, 4003, 5002, 6001] }}'
+    sequence:
+    - variables:
+        new_face: '{{ (event | int) % 10 }}'
+    - choose:
+      - conditions:
+        - '{{ face_entity is not none }}'
+        - '{{ face_entity.split(".") | first == "input_number" }}'
+        sequence:
+        - service: input_number.set_value
+          data:
+            value: '{{ new_face }}'
+          target:
+            entity_id: '{{ face_entity }}'
+      - conditions:
+        - '{{ face_entity is not none }}'
+        - '{{ face_entity.split(".") | first == "input_text" }}'
+        sequence:
+        - service: input_text.set_value
+          data:
+            value: '{{ new_face }}'
+          target:
+            entity_id: '{{ face_entity }}'
+      default: []
+    - sequence: !input 'flip_180'
+  - conditions:
+    - '{{ event in [1002, 1003, 1004, 1005, 2001, 2003, 2004, 2006, 3001, 3002, 3005,
+      3006, 4001, 4002, 4005, 4006, 5001, 5003, 5004, 5006, 6002, 6003, 6004, 6005] }}'
+    sequence:
+    - variables:
+        new_face: '{{ (event | int) % 10 }}'
+    - choose:
+      - conditions:
+        - '{{ face_entity is not none }}'
+        - '{{ face_entity.split(".") | first == "input_number" }}'
+        sequence:
+        - service: input_number.set_value
+          data:
+            value: '{{ new_face }}'
+          target:
+            entity_id: '{{ face_entity }}'
+      - conditions:
+        - '{{ face_entity is not none }}'
+        - '{{ face_entity.split(".") | first == "input_text" }}'
+        sequence:
+        - service: input_text.set_value
+          data:
+            value: '{{ new_face }}'
+          target:
+            entity_id: '{{ face_entity }}'
+      default: []
+    - sequence: !input 'flip_90'
+  - conditions:
+    - '{{ event == 7007 }}'
+    sequence:
+    - choose:
+      - conditions:
+        - '{{ face_state == 1 }}'
+        sequence: !input 'shake_face_1'
+      - conditions:
+        - '{{ face_state == 2 }}'
+        sequence: !input 'shake_face_2'
+      - conditions:
+        - '{{ face_state == 3 }}'
+        sequence: !input 'shake_face_3'
+      - conditions:
+        - '{{ face_state == 4 }}'
+        sequence: !input 'shake_face_4'
+      - conditions:
+        - '{{ face_state == 5 }}'
+        sequence: !input 'shake_face_5'
+      - conditions:
+        - '{{ face_state == 6 }}'
+        sequence: !input 'shake_face_6'
+      default: !input 'shake'
+  - conditions:
+    - '{{ event == 7008 }}'
+    sequence: !input 'drop'
+  - conditions:
+    - '{{ event | int > 0 }}'
+    sequence:
+    - choose:
+      - conditions:
+        - '{{ face_state == 1 }}'
+        sequence: !input 'rotate_cw_face_1'
+      - conditions:
+        - '{{ face_state == 2 }}'
+        sequence: !input 'rotate_cw_face_2'
+      - conditions:
+        - '{{ face_state == 3 }}'
+        sequence: !input 'rotate_cw_face_3'
+      - conditions:
+        - '{{ face_state == 4 }}'
+        sequence: !input 'rotate_cw_face_4'
+      - conditions:
+        - '{{ face_state == 5 }}'
+        sequence: !input 'rotate_cw_face_5'
+      - conditions:
+        - '{{ face_state == 6 }}'
+        sequence: !input 'rotate_cw_face_6'
+      default: !input 'rotate_cw'
+    - choose:
+      - conditions:
+        - '{{ enable_defaults }}'
+        - '{{ default_light is not none }}'
+        sequence:
+        - variables:
+            current_brightness: '{{ state_attr(default_light, "brightness") | int(0) }}'
+            current_pct: '{{ (current_brightness / 255 * 100) | float(0) }}'
+            step: 10
+            new_pct: '{{ [ (current_pct + step) | round(0), 100 ] | min | int }}'
+        - service: light.turn_on
+          target:
+            entity_id: '{{ default_light }}'
+          data:
+            brightness_pct: '{{ new_pct }}'
+  - conditions:
+    - '{{ event | int < 0 }}'
+    sequence:
+    - choose:
+      - conditions:
+        - '{{ face_state == 1 }}'
+        sequence: !input 'rotate_ccw_face_1'
+      - conditions:
+        - '{{ face_state == 2 }}'
+        sequence: !input 'rotate_ccw_face_2'
+      - conditions:
+        - '{{ face_state == 3 }}'
+        sequence: !input 'rotate_ccw_face_3'
+      - conditions:
+        - '{{ face_state == 4 }}'
+        sequence: !input 'rotate_ccw_face_4'
+      - conditions:
+        - '{{ face_state == 5 }}'
+        sequence: !input 'rotate_ccw_face_5'
+      - conditions:
+        - '{{ face_state == 6 }}'
+        sequence: !input 'rotate_ccw_face_6'
+      default: !input 'rotate_ccw'
+    - choose:
+      - conditions:
+        - '{{ enable_defaults }}'
+        - '{{ default_light is not none }}'
+        sequence:
+        - variables:
+            current_brightness: '{{ state_attr(default_light, "brightness") | int(0) }}'
+            current_pct: '{{ (current_brightness / 255 * 100) | float(0) }}'
+            step: 10
+            new_pct: '{{ [ (current_pct - step) | round(0), 1 ] | max | int }}'
+        - service: light.turn_on
+          target:
+            entity_id: '{{ default_light }}'
+          data:
+            brightness_pct: '{{ new_pct }}'
