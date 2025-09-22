@@ -20,9 +20,49 @@ blueprint:
           domain:
             - input_number
             - input_text
-    default_light:
-      name: Default light target
-      description: Optional light to control when using built-in defaults for rotate/double tap
+    default_light_face_1:
+      name: Face 1 – Default light target
+      description: Optional light to control with built-in defaults when face 1 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    default_light_face_2:
+      name: Face 2 – Default light target
+      description: Optional light to control with built-in defaults when face 2 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    default_light_face_3:
+      name: Face 3 – Default light target
+      description: Optional light to control with built-in defaults when face 3 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    default_light_face_4:
+      name: Face 4 – Default light target
+      description: Optional light to control with built-in defaults when face 4 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    default_light_face_5:
+      name: Face 5 – Default light target
+      description: Optional light to control with built-in defaults when face 5 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    default_light_face_6:
+      name: Face 6 – Default light target
+      description: Optional light to control with built-in defaults when face 6 is up
       default: null
       selector:
         entity:
@@ -297,7 +337,21 @@ action:
         )
         or 0
       }}
-    default_light: !input 'default_light'
+    default_light_face_1: !input 'default_light_face_1'
+    default_light_face_2: !input 'default_light_face_2'
+    default_light_face_3: !input 'default_light_face_3'
+    default_light_face_4: !input 'default_light_face_4'
+    default_light_face_5: !input 'default_light_face_5'
+    default_light_face_6: !input 'default_light_face_6'
+    default_light_selected: >-
+      {{
+        iif(face_state == 1, default_light_face_1,
+        iif(face_state == 2, default_light_face_2,
+        iif(face_state == 3, default_light_face_3,
+        iif(face_state == 4, default_light_face_4,
+        iif(face_state == 5, default_light_face_5,
+        iif(face_state == 6, default_light_face_6, none))))))
+      }}
     enable_defaults: !input 'enable_default_actions'
 - choose:
   - conditions:
@@ -352,11 +406,11 @@ action:
     - choose:
       - conditions:
         - '{{ enable_defaults }}'
-        - '{{ default_light is not none }}'
+        - '{{ default_light_selected is not none }}'
         sequence:
         - service: light.toggle
           target:
-            entity_id: '{{ default_light }}'
+            entity_id: '{{ default_light_selected }}'
   - conditions:
     - '{{ event in [1006, 2005, 3004, 4003, 5002, 6001] }}'
     sequence:
@@ -462,16 +516,16 @@ action:
     - choose:
       - conditions:
         - '{{ enable_defaults }}'
-        - '{{ default_light is not none }}'
+        - '{{ default_light_selected is not none }}'
         sequence:
         - variables:
-            current_brightness: '{{ state_attr(default_light, "brightness") | int(0) }}'
+            current_brightness: '{{ state_attr(default_light_selected, "brightness") | int(0) }}'
             current_pct: '{{ (current_brightness / 255 * 100) | float(0) }}'
             step: 10
             new_pct: '{{ [ (current_pct + step) | round(0), 100 ] | min | int }}'
         - service: light.turn_on
           target:
-            entity_id: '{{ default_light }}'
+            entity_id: '{{ default_light_selected }}'
           data:
             brightness_pct: '{{ new_pct }}'
   - conditions:
@@ -500,15 +554,15 @@ action:
     - choose:
       - conditions:
         - '{{ enable_defaults }}'
-        - '{{ default_light is not none }}'
+        - '{{ default_light_selected is not none }}'
         sequence:
         - variables:
-            current_brightness: '{{ state_attr(default_light, "brightness") | int(0) }}'
+            current_brightness: '{{ state_attr(default_light_selected, "brightness") | int(0) }}'
             current_pct: '{{ (current_brightness / 255 * 100) | float(0) }}'
             step: 10
             new_pct: '{{ [ (current_pct - step) | round(0), 1 ] | max | int }}'
         - service: light.turn_on
           target:
-            entity_id: '{{ default_light }}'
+            entity_id: '{{ default_light_selected }}'
           data:
             brightness_pct: '{{ new_pct }}'
