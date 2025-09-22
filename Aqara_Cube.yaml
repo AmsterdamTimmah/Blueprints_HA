@@ -26,6 +26,42 @@ blueprint:
       default: []
       selector:
         action: {}
+    wake_face_1:
+      name: Face 1 – Wake
+      description: Action to run when cube wakes and face 1 is up
+      default: []
+      selector:
+        action: {}
+    wake_face_2:
+      name: Face 2 – Wake
+      description: Action to run when cube wakes and face 2 is up
+      default: []
+      selector:
+        action: {}
+    wake_face_3:
+      name: Face 3 – Wake
+      description: Action to run when cube wakes and face 3 is up
+      default: []
+      selector:
+        action: {}
+    wake_face_4:
+      name: Face 4 – Wake
+      description: Action to run when cube wakes and face 4 is up
+      default: []
+      selector:
+        action: {}
+    wake_face_5:
+      name: Face 5 – Wake
+      description: Action to run when cube wakes and face 5 is up
+      default: []
+      selector:
+        action: {}
+    wake_face_6:
+      name: Face 6 – Wake
+      description: Action to run when cube wakes and face 6 is up
+      default: []
+      selector:
+        action: {}
     slide:
       name: Slide the cube
       description: Action to run on slide movement
@@ -35,6 +71,42 @@ blueprint:
     double_tap:
       name: Double tap the cube
       description: Action to run on a double tap
+      default: []
+      selector:
+        action: {}
+    double_tap_face_1:
+      name: Face 1 – Double tap
+      description: Action to run on double tap when face 1 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_2:
+      name: Face 2 – Double tap
+      description: Action to run on double tap when face 2 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_3:
+      name: Face 3 – Double tap
+      description: Action to run on double tap when face 3 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_4:
+      name: Face 4 – Double tap
+      description: Action to run on double tap when face 4 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_5:
+      name: Face 5 – Double tap
+      description: Action to run on double tap when face 5 is up
+      default: []
+      selector:
+        action: {}
+    double_tap_face_6:
+      name: Face 6 – Double tap
+      description: Action to run on double tap when face 6 is up
       default: []
       selector:
         action: {}
@@ -53,6 +125,42 @@ blueprint:
     shake:
       name: Shake the cube
       description: Action to run when the cube is shaked
+      default: []
+      selector:
+        action: {}
+    shake_face_1:
+      name: Face 1 – Shake
+      description: Action to run when the cube is shaked and face 1 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_2:
+      name: Face 2 – Shake
+      description: Action to run when the cube is shaked and face 2 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_3:
+      name: Face 3 – Shake
+      description: Action to run when the cube is shaked and face 3 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_4:
+      name: Face 4 – Shake
+      description: Action to run when the cube is shaked and face 4 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_5:
+      name: Face 5 – Shake
+      description: Action to run when the cube is shaked and face 5 is up
+      default: []
+      selector:
+        action: {}
+    shake_face_6:
+      name: Face 6 – Shake
+      description: Action to run when the cube is shaked and face 6 is up
       default: []
       selector:
         action: {}
@@ -75,73 +183,73 @@ blueprint:
       selector:
         action: {}
     rotate_cw_face_1:
-      name: Rotate CW with face 1 up
+      name: Face 1 – Rotate clockwise
       description: Action to run when rotating clockwise and face 1 is up
       default: []
       selector:
         action: {}
-    rotate_cw_face_2:
-      name: Rotate CW with face 2 up
-      description: Action to run when rotating clockwise and face 2 is up
-      default: []
-      selector:
-        action: {}
-    rotate_cw_face_3:
-      name: Rotate CW with face 3 up
-      description: Action to run when rotating clockwise and face 3 is up
-      default: []
-      selector:
-        action: {}
-    rotate_cw_face_4:
-      name: Rotate CW with face 4 up
-      description: Action to run when rotating clockwise and face 4 is up
-      default: []
-      selector:
-        action: {}
-    rotate_cw_face_5:
-      name: Rotate CW with face 5 up
-      description: Action to run when rotating clockwise and face 5 is up
-      default: []
-      selector:
-        action: {}
-    rotate_cw_face_6:
-      name: Rotate CW with face 6 up
-      description: Action to run when rotating clockwise and face 6 is up
-      default: []
-      selector:
-        action: {}
     rotate_ccw_face_1:
-      name: Rotate CCW with face 1 up
+      name: Face 1 – Rotate counter-clockwise
       description: Action to run when rotating counter clockwise and face 1 is up
       default: []
       selector:
         action: {}
+    rotate_cw_face_2:
+      name: Face 2 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 2 is up
+      default: []
+      selector:
+        action: {}
     rotate_ccw_face_2:
-      name: Rotate CCW with face 2 up
+      name: Face 2 – Rotate counter-clockwise
       description: Action to run when rotating counter clockwise and face 2 is up
       default: []
       selector:
         action: {}
+    rotate_cw_face_3:
+      name: Face 3 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 3 is up
+      default: []
+      selector:
+        action: {}
     rotate_ccw_face_3:
-      name: Rotate CCW with face 3 up
+      name: Face 3 – Rotate counter-clockwise
       description: Action to run when rotating counter clockwise and face 3 is up
       default: []
       selector:
         action: {}
+    rotate_cw_face_4:
+      name: Face 4 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 4 is up
+      default: []
+      selector:
+        action: {}
     rotate_ccw_face_4:
-      name: Rotate CCW with face 4 up
+      name: Face 4 – Rotate counter-clockwise
       description: Action to run when rotating counter clockwise and face 4 is up
       default: []
       selector:
         action: {}
+    rotate_cw_face_5:
+      name: Face 5 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 5 is up
+      default: []
+      selector:
+        action: {}
     rotate_ccw_face_5:
-      name: Rotate CCW with face 5 up
+      name: Face 5 – Rotate counter-clockwise
       description: Action to run when rotating counter clockwise and face 5 is up
       default: []
       selector:
         action: {}
+    rotate_cw_face_6:
+      name: Face 6 – Rotate clockwise
+      description: Action to run when rotating clockwise and face 6 is up
+      default: []
+      selector:
+        action: {}
     rotate_ccw_face_6:
-      name: Rotate CCW with face 6 up
+      name: Face 6 – Rotate counter-clockwise
       description: Action to run when rotating counter clockwise and face 6 is up
       default: []
       selector:
@@ -172,13 +280,53 @@ action:
 - choose:
   - conditions:
     - '{{ event == 7000 }}'
-    sequence: !input 'wake'
+    sequence:
+    - choose:
+      - conditions:
+        - '{{ face_state == 1 }}'
+        sequence: !input 'wake_face_1'
+      - conditions:
+        - '{{ face_state == 2 }}'
+        sequence: !input 'wake_face_2'
+      - conditions:
+        - '{{ face_state == 3 }}'
+        sequence: !input 'wake_face_3'
+      - conditions:
+        - '{{ face_state == 4 }}'
+        sequence: !input 'wake_face_4'
+      - conditions:
+        - '{{ face_state == 5 }}'
+        sequence: !input 'wake_face_5'
+      - conditions:
+        - '{{ face_state == 6 }}'
+        sequence: !input 'wake_face_6'
+      default: !input 'wake'
   - conditions:
     - '{{ event in [1000, 2000, 3000, 4000, 5000, 6000] }}'
     sequence: !input 'slide'
   - conditions:
     - '{{ event in [1001, 2002, 3003, 4004, 5005, 6006] }}'
-    sequence: !input 'double_tap'
+    sequence:
+    - choose:
+      - conditions:
+        - '{{ face_state == 1 }}'
+        sequence: !input 'double_tap_face_1'
+      - conditions:
+        - '{{ face_state == 2 }}'
+        sequence: !input 'double_tap_face_2'
+      - conditions:
+        - '{{ face_state == 3 }}'
+        sequence: !input 'double_tap_face_3'
+      - conditions:
+        - '{{ face_state == 4 }}'
+        sequence: !input 'double_tap_face_4'
+      - conditions:
+        - '{{ face_state == 5 }}'
+        sequence: !input 'double_tap_face_5'
+      - conditions:
+        - '{{ face_state == 6 }}'
+        sequence: !input 'double_tap_face_6'
+      default: !input 'double_tap'
   - conditions:
     - '{{ event in [1006, 2005, 3004, 4003, 5002, 6001] }}'
     sequence:
@@ -234,7 +382,27 @@ action:
     - sequence: !input 'flip_90'
   - conditions:
     - '{{ event == 7007 }}'
-    sequence: !input 'shake'
+    sequence:
+    - choose:
+      - conditions:
+        - '{{ face_state == 1 }}'
+        sequence: !input 'shake_face_1'
+      - conditions:
+        - '{{ face_state == 2 }}'
+        sequence: !input 'shake_face_2'
+      - conditions:
+        - '{{ face_state == 3 }}'
+        sequence: !input 'shake_face_3'
+      - conditions:
+        - '{{ face_state == 4 }}'
+        sequence: !input 'shake_face_4'
+      - conditions:
+        - '{{ face_state == 5 }}'
+        sequence: !input 'shake_face_5'
+      - conditions:
+        - '{{ face_state == 6 }}'
+        sequence: !input 'shake_face_6'
+      default: !input 'shake'
   - conditions:
     - '{{ event == 7008 }}'
     sequence: !input 'drop'
