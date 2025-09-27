@@ -1,0 +1,51 @@
+type: custom:button-card
+size: 100%
+styles:
+  card: null
+  icon:
+    - width: 100%
+    - height: 135px
+    - transform: scale(1.2)
+variables:
+  color: "[[[ return `${states['input_text.braun_setter_helper'].state}` ]]]"
+  player_mode: "[[[ return `${states['media_player.braun'].state}` ]]]"
+triggers_update:
+  - media_player.braun
+  - input_text.braun_setter_helper
+tap_action:
+  action: call-service
+  service: >-
+    [[[ return states['switch.on_off_plug_in_unit_19'].state === 'off'
+        ? 'switch.turn_on'
+        : 'media_player.media_play_pause'; ]]]
+  target:
+    entity_id: >-
+      [[[ return states['switch.on_off_plug_in_unit_19'].state === 'off'
+          ? 'switch.on_off_plug_in_unit_19'
+          : 'media_player.braun'; ]]]
+name: Braun
+state:
+  - value: "off"
+    icon: local:Braun_logo
+    color: rgb(79, 114, 154)
+  - value: "on"
+    icon: local:Braun_logo
+    styles:
+      icon:
+        - color: >-
+            [[[ return variables.color != "" ? variables.color : "rgb(245, 196,
+            68)"]]]
+      card:
+        - animation: >-
+            [[[ return variables.player_mode === "paused" ? "blink 1.5s
+            infinite" : "blink 0s infinite" ]]]
+entity: switch.on_off_plug_in_unit_19
+hold_action:
+  action: call-service
+  repeat: 500
+  repeat_limit: 1
+  haptic: heavy
+  service: script.bluesound_braun_power_toggle
+  target: {}
+show_name: false
+show_icon: true

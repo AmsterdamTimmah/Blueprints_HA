@@ -34,6 +34,55 @@ blueprint:
       default: true
       selector:
         boolean: {}
+    # Face-specific light targets (optional)
+    face_1_light:
+      name: Face 1 – Light target
+      description: Optional light used for defaults when face 1 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    face_2_light:
+      name: Face 2 – Light target
+      description: Optional light used for defaults when face 2 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    face_3_light:
+      name: Face 3 – Light target
+      description: Optional light used for defaults when face 3 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    face_4_light:
+      name: Face 4 – Light target
+      description: Optional light used for defaults when face 4 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    face_5_light:
+      name: Face 5 – Light target
+      description: Optional light used for defaults when face 5 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
+    face_6_light:
+      name: Face 6 – Light target
+      description: Optional light used for defaults when face 6 is up
+      default: null
+      selector:
+        entity:
+          domain:
+            - light
     wake:
       name: Cube wake up
       description: Action to run when cube wakes
@@ -299,6 +348,23 @@ action:
       }}
     default_light: !input 'default_light'
     enable_defaults: !input 'enable_default_actions'
+    face_1_light: !input 'face_1_light'
+    face_2_light: !input 'face_2_light'
+    face_3_light: !input 'face_3_light'
+    face_4_light: !input 'face_4_light'
+    face_5_light: !input 'face_5_light'
+    face_6_light: !input 'face_6_light'
+    effective_light: >-
+      {{
+        (
+          (face_state == 1 and face_1_light)
+          or (face_state == 2 and face_2_light)
+          or (face_state == 3 and face_3_light)
+          or (face_state == 4 and face_4_light)
+          or (face_state == 5 and face_5_light)
+          or (face_state == 6 and face_6_light)
+        ) or default_light
+      }}
 - choose:
   - conditions:
     - '{{ event == 7000 }}'
@@ -352,11 +418,11 @@ action:
     - choose:
       - conditions:
         - '{{ enable_defaults }}'
-        - '{{ default_light is not none }}'
+        - '{{ effective_light is not none }}'
         sequence:
         - service: light.toggle
           target:
-            entity_id: '{{ default_light }}'
+            entity_id: '{{ effective_light }}'
   - conditions:
     - '{{ event in [1006, 2005, 3004, 4003, 5002, 6001] }}'
     sequence:
@@ -462,16 +528,16 @@ action:
     - choose:
       - conditions:
         - '{{ enable_defaults }}'
-        - '{{ default_light is not none }}'
+        - '{{ effective_light is not none }}'
         sequence:
         - variables:
-            current_brightness: '{{ state_attr(default_light, "brightness") | int(0) }}'
+            current_brightness: '{{ state_attr(effective_light, "brightness") | int(0) }}'
             current_pct: '{{ (current_brightness / 255 * 100) | float(0) }}'
             step: 10
             new_pct: '{{ [ (current_pct + step) | round(0), 100 ] | min | int }}'
         - service: light.turn_on
           target:
-            entity_id: '{{ default_light }}'
+            entity_id: '{{ effective_light }}'
           data:
             brightness_pct: '{{ new_pct }}'
   - conditions:
@@ -500,15 +566,15 @@ action:
     - choose:
       - conditions:
         - '{{ enable_defaults }}'
-        - '{{ default_light is not none }}'
+        - '{{ effective_light is not none }}'
         sequence:
         - variables:
-            current_brightness: '{{ state_attr(default_light, "brightness") | int(0) }}'
+            current_brightness: '{{ state_attr(effective_light, "brightness") | int(0) }}'
             current_pct: '{{ (current_brightness / 255 * 100) | float(0) }}'
             step: 10
             new_pct: '{{ [ (current_pct - step) | round(0), 1 ] | max | int }}'
         - service: light.turn_on
           target:
-            entity_id: '{{ default_light }}'
+            entity_id: '{{ effective_light }}'
           data:
             brightness_pct: '{{ new_pct }}'

@@ -475,6 +475,7 @@ action:
       - conditions:
         - '{{ enable_defaults }}'
         - '{{ default_light is not none }}'
+        - '{{ states(default_light) == "on" }}'
         sequence:
         - variables:
             current_brightness: '{{ state_attr(default_light, "brightness") | int(0) }}'
@@ -513,6 +514,7 @@ action:
       - conditions:
         - '{{ enable_defaults }}'
         - '{{ default_light is not none }}'
+        - '{{ states(default_light) == "on" }}'
         sequence:
         - variables:
             current_brightness: '{{ state_attr(default_light, "brightness") | int(0) }}'
